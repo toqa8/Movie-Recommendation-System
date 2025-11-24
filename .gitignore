@@ -1,2 +1,13 @@
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Java compiled files
+*.class
+*.jar
 /nbproject/
 /target/
