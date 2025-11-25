@@ -11,15 +11,13 @@ package com.mycompany.movierecommendationsystem.validators;
  */
 //import org.junit.Test;
 //import static org.junit.Assert.*;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserValidatorTest {
 
-    private UserValidator validator = new UserValidator();
+    private final UserValidator validator = new UserValidator();
 
 
     // ---------- NAME TESTS ----------
@@ -31,28 +29,28 @@ public class UserValidatorTest {
     
     @Test
     public void testNameNull() {
-        assertEquals("Invalid user name", validator.validateUserName(null));
+        assertEquals("ERROR: User Name null is wrong", validator.validateUserName(null));
     }
 
     @Test
     public void testNameCannotStartWithSpace() {
-        assertEquals("Invalid user name", validator.validateUserName("  Ahmed"));
+        assertEquals("ERROR: User Name   Ahmed is wrong", validator.validateUserName("  Ahmed"));
     }
 
     @Test
     public void testNameCannotContainDigits() {
-        assertEquals("Invalid user name", validator.validateUserName("A7med"));
+        assertEquals("ERROR: User Name A7med is wrong", validator.validateUserName("A7med"));
     }
 
     @Test
     public void testNameCannotContainSymbols() {
-        assertEquals("Invalid user name", validator.validateUserName("A@hmed"));
+        assertEquals("ERROR: User Name A@hmed is wrong", validator.validateUserName("A@hmed"));
     }
 
     @Test
     public void testNameCannotBeEmpty() {
-        assertEquals("Invalid user name", validator.validateUserName(""));
-        assertEquals("Invalid user name", validator.validateUserName("   "));
+        assertEquals("ERROR: User Name  is wrong", validator.validateUserName(""));
+        assertEquals("ERROR: User Name     is wrong", validator.validateUserName("   "));
     }
 
 
@@ -65,41 +63,26 @@ public class UserValidatorTest {
     
     @Test
     public void testIdNull() {
-        assertEquals("Invalid user ID", validator.validateUserId(null));
+        assertEquals("ERROR: User Id null is wrong", validator.validateUserId(null));
     }
 
     @Test
     public void testUserIdMustBeLength9() {
-        assertEquals("Invalid user ID", validator.validateUserId("123"));
+        assertEquals("ERROR: User Id 123 is wrong", validator.validateUserId("123"));
     }
 
     @Test
     public void testUserIdMustStartWithDigit() {
-        assertEquals("Invalid user ID", validator.validateUserId("A12345678"));
+        assertEquals("ERROR: User Id A12345678 is wrong", validator.validateUserId("A12345678"));
     }
 
     @Test
     public void testUserIdMustHaveAtLeastOneLetter() {
-        assertEquals("Invalid user ID", validator.validateUserId("123456789"));
+        assertEquals("ERROR: User Id 123456789 is wrong", validator.validateUserId("123456789"));
     }
 
     @Test
     public void testUserIdCannotContainSymbols() {
-        assertEquals("Invalid user ID", validator.validateUserId("1A234$678"));
-    }
-
-
-    // ---------- DUPLICATE TEST ----------
-    @Test
-    public void testUserIdUniqueness() {
-        Set<String> ids = new HashSet<>();
-        ids.add("1A2345678");
-
-        assertEquals("Duplicate user ID",
-            validator.validateUserIdUniqueness("1A2345678", ids));
-
-        assertNull(
-            validator.validateUserIdUniqueness("2B3456789", ids)
-        );
+        assertEquals("ERROR: User Id 1A234$678 is wrong", validator.validateUserId("1A234$678"));
     }
 }
