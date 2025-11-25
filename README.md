@@ -49,9 +49,7 @@ Returns an error message in case of failure.
 ---
 
 ## 🔍 5. MovieParser.java
-Processes the raw lines from movies.txt.
 
-### Responsibilities:  
 - Create Movie objects  
 - Validate each movie using MovieValidator  
 - Return a List<Movie>
@@ -59,9 +57,7 @@ Processes the raw lines from movies.txt.
 ---
 
 ## 🔍 6. UserParser.java
-Processes the raw lines from users.txt.
 
-### Responsibilities:
 - Create User objects  
 - Validate each user using UserValidator  
 - Return a List<User>
