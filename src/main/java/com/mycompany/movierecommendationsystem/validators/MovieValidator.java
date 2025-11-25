@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.movierecommendationsystem;
+package com.mycompany.movierecommendationsystem.validators;
 
 /**
  *
@@ -17,6 +17,8 @@ package com.mycompany.movierecommendationsystem;
  *
  * @author nadam
  */
+import com.mycompany.movierecommendationsystem.models.Movie;
+
 import java.util.HashSet;
 import java.util.Set;
 

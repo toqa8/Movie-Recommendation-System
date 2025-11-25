@@ -2,10 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-package com.mycompany.movierecommendationsystem;
+package com.mycompany.movierecommendationsystem.validators;
 
 import java.util.Arrays;
-import org.junit.Test; 
+
+import com.mycompany.movierecommendationsystem.models.Movie;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MovieValidatorTest {

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
-package com.mycompany.movierecommendationsystem;
+package com.mycompany.movierecommendationsystem.validators;
 
 
 /**
@@ -13,6 +13,7 @@ package com.mycompany.movierecommendationsystem;
 //import static org.junit.Assert.*;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
