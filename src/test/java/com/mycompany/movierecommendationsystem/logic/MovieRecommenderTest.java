@@ -126,7 +126,7 @@ public class MovieRecommenderTest {
         result = recommender.recommendMoviesForUser(user, movies);
 
         // then
-        assertEquals(2, result.size());
+        assertEquals(1, result.size());
         assertTrue(result.contains(movies.get(0)));
         assertFalse(result.contains(movies.get(1)));
         assertFalse(result.contains(movies.get(2)));
