@@ -22,12 +22,6 @@ import com.mycompany.movierecommendationsystem.models.Movie;
 import java.util.HashSet;
 import java.util.Set;
 
-class ValidationException extends Exception {
-    public ValidationException(String message) {
-        super(message);
-    }
-}
-
 public class MovieValidator {
 
     /**
