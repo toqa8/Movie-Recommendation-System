@@ -1,5 +1,8 @@
 package com.mycompany.movierecommendationsystem;
 
+import com.mycompany.movierecommendationsystem.logic.RecommenderLogic;
+import com.mycompany.movierecommendationsystem.models.Movie;
+import com.mycompany.movierecommendationsystem.models.User;
 import com.mycompany.movierecommendationsystem.parser.MovieParser;
 import com.mycompany.movierecommendationsystem.recommender.RecommendationWriter;
 
@@ -41,8 +44,8 @@ public class RecommendationSystem {
             List<String> userLines  = fileHandler.readFile(usersFilePath);
 
             
-            List<Movie> movies = movieParser.parse(movieLines); 
-            List<User> users   = userParser.parse(userLines);   
+            List<Movie> movies = movieParser.parse(movieLines);
+            List<User> users   = userParser.parse(userLines);
 
             
             Map<User, List<Movie>> recommendations =
