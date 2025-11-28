@@ -48,6 +48,11 @@ public class RecommendationSystem {
             List<Movie> movies = movieParser.parseMovies(movieLines);
             List<User> users   = userParser.parseUsers(userLines);
 
+            if (users==null) {
+                
+                RecommendationWriter.writeError(userParser.getLastError());
+                return;
+            }
 
             Map<User, List<Movie>> recommendations =
                     recommenderLogic.generateRecommendations(movies, users);
