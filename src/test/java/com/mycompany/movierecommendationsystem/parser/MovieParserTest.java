@@ -47,7 +47,7 @@ public class MovieParserTest {
     public void movieTitleError_InvalidCharacter() {
 
         List<String> lines = Arrays.asList(
-                "the m@trix,TM123",  
+                "the m@trix,TM123",
                 "Action,Sci-Fi"
         );
 
@@ -84,6 +84,21 @@ public class MovieParserTest {
         );
 
         assertTrue(ex.getMessage().contains("ERROR: Movie Id numbers"));
+    }
+
+    @Test
+    public void testNullInput() {
+        List<String> lines = null;
+        ValidationException ex = assertThrows(ValidationException.class,
+                () -> MovieParser.parseMovies(lines));
+
+    }
+
+    @Test
+    public void testEmptyList() {
+        List<String> lines = Arrays.asList();
+        ValidationException ex = assertThrows(ValidationException.class,
+                () -> MovieParser.parseMovies(lines));
     }
 
     @org.junit.Test

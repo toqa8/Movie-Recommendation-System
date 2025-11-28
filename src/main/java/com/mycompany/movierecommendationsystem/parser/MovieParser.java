@@ -11,7 +11,9 @@ import java.util.List;
 public class MovieParser {
     public static List<Movie> parseMovies(List<String> lines) throws ValidationException {
         List<Movie> movies = new ArrayList<>();
-
+        if (lines == null || lines.isEmpty()) {
+            throw new ValidationException("ERROR: movies.txt is empty or missing");
+        }
         if (lines.size() % 2 != 0) {
             throw new ValidationException("ERROR: movies.txt format is wrong");
         }

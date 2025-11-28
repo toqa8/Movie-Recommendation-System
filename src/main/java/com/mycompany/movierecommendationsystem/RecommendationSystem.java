@@ -4,6 +4,7 @@ import com.mycompany.movierecommendationsystem.logic.RecommenderLogic;
 import com.mycompany.movierecommendationsystem.models.Movie;
 import com.mycompany.movierecommendationsystem.models.User;
 import com.mycompany.movierecommendationsystem.parser.MovieParser;
+import com.mycompany.movierecommendationsystem.parser.UserParser;
 import com.mycompany.movierecommendationsystem.recommender.RecommendationWriter;
 
 import java.util.List;

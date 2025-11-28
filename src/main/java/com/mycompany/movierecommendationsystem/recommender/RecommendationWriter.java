@@ -15,7 +15,7 @@ public final class RecommendationWriter {
     private static final String OUTPUT_FILE_NAME = "recommendations.txt";
 
     
-    private RecommendationWriter() {
+    public RecommendationWriter() {
     }
 
     

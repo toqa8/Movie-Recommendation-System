@@ -1,4 +1,7 @@
-package com.mycompany.movierecommendationsystem;
+package com.mycompany.movierecommendationsystem.parser;
+
+import com.mycompany.movierecommendationsystem.models.User;
+import com.mycompany.movierecommendationsystem.validators.UserValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;

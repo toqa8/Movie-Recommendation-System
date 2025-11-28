@@ -2,6 +2,9 @@ package com.mycompany.movierecommendationsystem;
 
 import java.util.Arrays;
 import java.util.List;
+
+import com.mycompany.movierecommendationsystem.models.User;
+import com.mycompany.movierecommendationsystem.parser.UserParser;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
