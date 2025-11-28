@@ -30,7 +30,7 @@ public class MovieParserTest {
     }
 
     @org.junit.Test
-    public void movieTitleError() {
+    public void movieTitleError_lowercase() {
 
         List<String> lines = Arrays.asList(
                 "the matrix,TM123",  // lowercase
@@ -42,6 +42,21 @@ public class MovieParserTest {
 
         assertTrue(ex.getMessage().contains("ERROR: Movie Title"));
     }
+
+    @org.junit.Test
+    public void movieTitleError_InvalidCharacter() {
+
+        List<String> lines = Arrays.asList(
+                "the m@trix,TM123",  
+                "Action,Sci-Fi"
+        );
+
+        com.mycompany.movierecommendationsystem.validators.ValidationException ex = assertThrows( com.mycompany.movierecommendationsystem.validators.ValidationException.class, () -> MovieParser.parseMovies(lines)
+        );
+
+        assertTrue(ex.getMessage().contains("ERROR: Movie Title"));
+    }
+
 
     @org.junit.Test
     public void movieIdLettersError() {
