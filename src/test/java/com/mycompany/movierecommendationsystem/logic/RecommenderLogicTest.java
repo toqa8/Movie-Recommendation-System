@@ -3,6 +3,7 @@ package com.mycompany.movierecommendationsystem.logic;
 import com.mycompany.movierecommendationsystem.models.Movie;
 import com.mycompany.movierecommendationsystem.models.User;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -55,6 +56,7 @@ class RecommenderLogicTest {
     }
 
     @Test
+    @DisplayName("T1: Return empty list if we can't identify the user's liked movie")
     void givenUserWithLikedMoviesNotInList_whenGenerateRecommendations_thenReturnEmptyList() {
         // given
         User user = new User("Lemony Snicket","582JK44TR",List.of("NO999"));
@@ -71,6 +73,7 @@ class RecommenderLogicTest {
     }
 
     @Test
+    @DisplayName("T2: Return correct recommendations for each user")
     void givenMultipleUsersWithOverlappingLikedMovies_whenGenerateRecommendations_thenReturnCorrectRecommendationsForEach() {
         // given
         User userA = new User("Test Sr.", "451ZK93TA", List.of("AA123"));
@@ -100,6 +103,7 @@ class RecommenderLogicTest {
     }
 
     @Test
+    @DisplayName("T3: Return empty map if no users are provided")
     void givenEmptyUserList_whenGenerateRecommendations_thenReturnEmptyMap() {
         // given
         users = List.of();
@@ -113,6 +117,7 @@ class RecommenderLogicTest {
     }
 
     @Test
+    @DisplayName("T4: Return empty recommendations for each user if no movies are provided")
     void givenEmptyMovieList_whenGenerateRecommendations_thenAllUsersReceiveEmptyRecommendations() {
         // given
         movies = List.of();
