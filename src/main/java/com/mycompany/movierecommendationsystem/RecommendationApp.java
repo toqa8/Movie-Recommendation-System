@@ -11,7 +11,7 @@ package com.mycompany.movierecommendationsystem;
 public class RecommendationApp {
 
     public static void main(String[] args) {
-        public static void main(String[] args) {
+
         RecommendationSystem system = new RecommendationSystem();
         system.run();
     }
