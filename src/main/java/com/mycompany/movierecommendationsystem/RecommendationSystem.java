@@ -45,7 +45,7 @@ public class RecommendationSystem {
 
 
             List<Movie> movies = movieParser.parseMovies(movieLines);
-            List<User> users   = userParser.parse(userLines);
+            List<User> users   = userParser.parseUsers(userLines);
 
 
             Map<User, List<Movie>> recommendations =
