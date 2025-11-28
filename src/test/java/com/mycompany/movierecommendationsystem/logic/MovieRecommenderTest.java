@@ -37,9 +37,9 @@ public class MovieRecommenderTest {
         List<Movie> recommended = recommender.recommendMoviesForUser(user, movies);
 
         // then
-        assertEquals(2, recommended.size());
+        assertEquals(1, recommended.size());
         assertTrue(recommended.contains(movies.get(0)));
-        assertTrue(recommended.contains(movies.get(2)));
+        assertFalse(recommended.contains(movies.get(2)));
     }
 
     @Test
@@ -59,10 +59,11 @@ public class MovieRecommenderTest {
         result = recommender.recommendMoviesForUser(user, movies);
 
         // then
-        assertEquals(3, result.size());
-        assertTrue(result.contains(movies.get(0)));
-        assertTrue(result.contains(movies.get(2)));
+        assertEquals(1, result.size());
+        assertFalse(result.contains(movies.get(0)));
+        assertFalse(result.contains(movies.get(2)));
         assertTrue(result.contains(movies.get(3)));
+
     }
 
     @Test
@@ -127,7 +128,7 @@ public class MovieRecommenderTest {
         // then
         assertEquals(2, result.size());
         assertTrue(result.contains(movies.get(0)));
-        assertTrue(result.contains(movies.get(1)));
+        assertFalse(result.contains(movies.get(1)));
         assertFalse(result.contains(movies.get(2)));
     }
 
@@ -136,7 +137,8 @@ public class MovieRecommenderTest {
     void givenUserLikesExistingAndNonExistingMovie_whenRecommendMovies_thenRecommendBasedOnExistingMovie() {
         // given
         movies = List.of(
-                new Movie( "Movie A","MA123", List.of("Action"))
+                new Movie( "Movie A","MA123", List.of("Action")),
+                new Movie( "Movie B","MB456", List.of("Action"))
         );
         user = new User("Test jr","549QP30VA",List.of("MA123", "NO456"));
 
@@ -145,6 +147,6 @@ public class MovieRecommenderTest {
 
         // then
         assertEquals(1, result.size());
-        assertTrue(result.contains(movies.getFirst()));
+        assertTrue(result.contains(movies.getLast()));
     }
 }
