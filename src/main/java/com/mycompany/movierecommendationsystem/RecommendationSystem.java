@@ -15,7 +15,7 @@ public class RecommendationSystem {
     private final String moviesFilePath;
     private final String usersFilePath;
 
-  
+
     private final FileHandler fileHandler;
     private final MovieParser movieParser;
     private final UserParser userParser;
@@ -43,19 +43,19 @@ public class RecommendationSystem {
             List<String> movieLines = fileHandler.readFile(moviesFilePath);
             List<String> userLines  = fileHandler.readFile(usersFilePath);
 
-            
-            List<Movie> movies = movieParser.parse(movieLines);
+
+            List<Movie> movies = movieParser.parseMovies(movieLines);
             List<User> users   = userParser.parse(userLines);
 
-            
+
             Map<User, List<Movie>> recommendations =
                     recommenderLogic.generateRecommendations(movies, users);
 
-           
+
             recommendationWriter.writeRecommendations(recommendations);
 
         } catch (Exception e) {
-     
+
             recommendationWriter.writeError(e.getMessage());
         }
     }
