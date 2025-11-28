@@ -39,6 +39,7 @@ class RecommenderLogicTest {
     }
 
     @Test
+    @DisplayName("T0: Return empty list if user has no liked movies")
     void givenUserWithNoLikedMovies_whenGenerateRecommendations_thenReturnEmptyList() {
         // given
         User user = new User("The Mad Hater","811DF22MX",List.of());
