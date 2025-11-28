@@ -89,7 +89,7 @@ public class MovieRecommenderTest {
         movies = List.of(
                 new Movie( "Movie A","MA468", List.of("Action"))
         );
-        user = new User("Lemony Snicket","582JK44TR",List.of("NO999")); // Not found in list
+        user = new User("Lemony Snicket","582JK44TR",List.of("NO999"));
 
         // when
         result = recommender.recommendMoviesForUser(user, movies);
