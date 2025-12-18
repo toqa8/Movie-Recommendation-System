@@ -7,6 +7,10 @@ import java.util.List;
 
 public class MovieRecommender {
     public List<Movie> recommendMoviesForUser(User user, List<Movie> movies) {
+        if (user == null || movies == null) {
+            throw new IllegalArgumentException("User or movies cannot be null");
+        }
+
         List<Movie> favouriteMovies = user.getLikedMovieIds().stream()
                 .flatMap(id -> movies.stream()
                         .filter(movie -> movie.getId().equals(id))

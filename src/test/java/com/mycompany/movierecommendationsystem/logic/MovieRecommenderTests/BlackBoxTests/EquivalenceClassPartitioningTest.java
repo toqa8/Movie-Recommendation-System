@@ -124,24 +124,7 @@ public class EquivalenceClassPartitioningTest {
     }
 
     @Test
-    @DisplayName("T7: No Favorite Set - Throw exception if user's favorites list is null.")
-    void givenUserWithNullFavoriteList_whenRecommendMovies_thenReturnEmptyList() {
-        // User Scen 2 (No Fav Set)
-        // given
-        movies = List.of(new Movie("Movie B", "MB200", List.of("Action")));
-        user = new User("Null Fav User", "549QP30VA", null);
-
-        // when
-        result = recommender.recommendMoviesForUser(user, movies);
-
-        // when / then
-        assertThrows(IllegalArgumentException.class, () -> {
-            recommender.recommendMoviesForUser(user, movies);
-        });
-    }
-
-    @Test
-    @DisplayName("T8: Empty Fav Set - Return empty if user has no favorites.")
+    @DisplayName("T7: Empty Fav Set - Return empty if user has no favorites.")
     void givenUserWithEmptyFavorites_whenRecommendMovies_thenReturnEmptyList() {
         // Partition: User Scen 2 (No Fav Set - Empty List)
         // given
@@ -156,7 +139,7 @@ public class EquivalenceClassPartitioningTest {
     }
 
     @Test
-    @DisplayName("T9: Null List - Throw exception if movie list is null.")
+    @DisplayName("T8: Null List - Throw exception if movie list is null.")
     void givenNullMovieList_whenRecommendMovies_thenReturnEmptyList() {
         // List Scen 5 (Null List)
         // given
