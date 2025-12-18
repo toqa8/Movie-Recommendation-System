@@ -24,41 +24,39 @@ import java.util.Set;
 
 public class MovieValidator {
 
-    /**
-     * Validates the movie logic using Exceptions.Throws ValidationException if any rule is violated.
-     * @param movie
-     * @throws ValidationException
-     */
+    private static final Set<String> usedNumbers = new HashSet<>();
+
+    public static void reset() {
+        usedNumbers.clear();
+    }
+
     public static void validate(Movie movie) throws ValidationException {
-      
+        
         if (!isValidTitle(movie.getTitle())) {
             throw new ValidationException("ERROR: Movie Title " + movie.getTitle() + " is wrong");
         }
 
-        // Extract Capital Letters from Title to check ID
         String capsFromTitle = extractCapitals(movie.getTitle());
 
         if (!movie.getId().startsWith(capsFromTitle)) {
             throw new ValidationException("ERROR: Movie Id letters " + movie.getId() + " are wrong");
         }
 
-        // We take the part of the ID after the capital letters
         String idNumbers = movie.getId().substring(capsFromTitle.length());
         
-        if (!areUniqueNumbers(idNumbers)) {
-            
+        if (!isValidGlobalNumber(idNumbers)) {
             throw new ValidationException("ERROR: Movie Id numbers " + movie.getId() + " aren't unique");
         }
+        
+        usedNumbers.add(idNumbers);
     }
 
-    // --- Helper Methods (Private) ---
+    // --- Helper Methods ---
 
     private static boolean isValidTitle(String title) {
         if (title == null || title.trim().isEmpty()) return false;
-        
-        String[] words = title.split("\\s+"); // Split by whitespace
+        String[] words = title.split("\\s+");
         for (String word : words) {
-            // Check if the word is not empty and starts with UpperCase
             if (word.isEmpty() || !Character.isUpperCase(word.charAt(0))) {
                 return false;
             }
@@ -76,21 +74,18 @@ public class MovieValidator {
         return sb.toString();
     }
 
-    private static boolean areUniqueNumbers(String suffix) {
-        // Check 1: Length must be exactly 3
+    private static boolean isValidGlobalNumber(String suffix) {
+        // 1. Must be exactly 3 characters long
         if (suffix.length() != 3) return false;
 
-        // Check 2: Must be digits
+        // 2. Must be digits only
         if (!suffix.matches("\\d+")) return false;
 
-        // Check 3: Digits must be unique (e.g., "123" ok, "112" bad)
-        Set<Character> uniqueDigits = new HashSet<>();
-        for (char c : suffix.toCharArray()) {
-            // If we can't add it to the set, it means it's a duplicate
-            if (!uniqueDigits.add(c)) {
-                return false; 
-            }
+        // 3. Must NOT be in the usedNumbers set (Global Uniqueness)
+        if (usedNumbers.contains(suffix)) {
+            return false; 
         }
+
         return true;
     }
 }
