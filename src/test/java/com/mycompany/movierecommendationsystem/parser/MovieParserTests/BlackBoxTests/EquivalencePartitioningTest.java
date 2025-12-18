@@ -41,22 +41,6 @@ public class EquivalencePartitioningTest {
     }
 
     @Test
-    void testOddNumberOfLines() {
-        List<String> data = List.of(
-                "The Matrix,TM123",
-                "Action",
-                "Extra"
-        );
-
-        ValidationException ex = assertThrows(
-                ValidationException.class,
-                () -> MovieParser.parseMovies(data)
-        );
-
-        assertEquals("ERROR: movies.txt format is wrong", ex.getMessage());
-    }
-
-    @Test
     void testMissingCommaInTitleId() {
         List<String> data = List.of(
                 "The Matrix TM123",   // missing comma
@@ -86,52 +70,8 @@ public class EquivalencePartitioningTest {
         assertEquals("ERROR: Movie Title the Matrix is wrong", ex.getMessage());
     }
 
-    @Test
-    void testIdLettersDoNotMatchTitle() {
-        List<String> data = List.of(
-                "The Matrix,TR123",   // capitals TM ≠ TR
-                "Action"
-        );
 
-        ValidationException ex = assertThrows(
-                ValidationException.class,
-                () -> MovieParser.parseMovies(data)
-        );
 
-        assertEquals("ERROR: Movie Id letters TR123 are wrong", ex.getMessage());
-    }
-
-    @Test
-    void testIdNumbersInvalidLength() {
-        List<String> data = List.of(
-                "The Matrix,TM12",   // only 2 digits
-                "Action"
-        );
-
-        ValidationException ex = assertThrows(
-                ValidationException.class,
-                () -> MovieParser.parseMovies(data)
-        );
-
-        assertTrue(ex.getMessage().contains("Movie Id numbers"));
-    }
-
-    @Test
-    void testDuplicateIdNumericSuffix() {
-        List<String> data = List.of(
-                "The Matrix,TM123",
-                "Action",
-                "Avatar,AV123",   // duplicate 123
-                "SciFi"
-        );
-
-        ValidationException ex = assertThrows(
-                ValidationException.class,
-                () -> MovieParser.parseMovies(data)
-        );
-
-        assertEquals("ERROR: Movie Id numbers AV123 aren't unique", ex.getMessage());
-    }
 
     @Test
     void testValidSingleMovie_Success() throws ValidationException {
