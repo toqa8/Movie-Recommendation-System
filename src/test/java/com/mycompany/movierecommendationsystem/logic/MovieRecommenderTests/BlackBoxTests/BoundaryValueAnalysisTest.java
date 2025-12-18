@@ -38,7 +38,27 @@ public class BoundaryValueAnalysisTest {
     }
 
     @Test
-    @DisplayName("T2: Given only one Movie which is User's Favorite")
+    @DisplayName("T2: Return empty list if favorite movie isn't in list.")
+    void givenMovieListWithoutFavorite_whenRecommendMovies_thenReturnEmptyList() {
+        // given
+        movies = List.of(
+                new Movie( "Movie A","MA645", List.of("Action")),
+                new Movie("Movie B","MB469", List.of("Comedy")),
+                new Movie( "Movie C","MC642", List.of("Drama")),
+                new Movie( "Movie D","MC145", List.of("Action", "Comedy")),
+                new Movie( "Movie E","ME012", List.of("Horror"))
+        );
+        user = new User("Tim Allen","451ZK93TA",List.of("TS034"));
+
+        // when
+        result = recommender.recommendMoviesForUser(user, List.of());
+
+        // then
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    @DisplayName("T3: Given only one Movie which is User's Favorite")
     void givenOnlyTheUsersFavorite_whenRecommendMovies_thenReturnAllActionMovies() {
         // given
         movies = List.of(
@@ -54,7 +74,7 @@ public class BoundaryValueAnalysisTest {
     }
 
     @Test
-    @DisplayName("T3: Return all other movies.")
+    @DisplayName("T4: Return all other movies.")
     void givenTwoMoviesBothFavoriteGenre_whenRecommendMovies_thenReturnOtherMovieMatchingGenre() {
         // given
         movies = List.of(
@@ -73,7 +93,7 @@ public class BoundaryValueAnalysisTest {
     }
 
     @Test
-    @DisplayName("T4: Mix of Favorite, Valid Match, and Wrong Genre.")
+    @DisplayName("T5: Mix of Favorite, Valid Match, and Wrong Genre.")
     void givenMovies_whenRecommendMovies_thenReturnMovieMatchingGenre() {
         // given
         movies = List.of(
