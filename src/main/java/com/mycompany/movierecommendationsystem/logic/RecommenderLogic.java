@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class RecommenderLogic {
 
-    protected MovieRecommender createMovieRecommender() {
+    public MovieRecommender createMovieRecommender() {
         return new MovieRecommender();
     }
 
