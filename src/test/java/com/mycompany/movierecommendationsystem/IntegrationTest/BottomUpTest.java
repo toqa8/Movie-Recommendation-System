@@ -1,7 +1,15 @@
+package com.mycompany.movierecommendationsystem.IntegrationTest;
+
+import com.mycompany.movierecommendationsystem.logic.MovieRecommender;
+import com.mycompany.movierecommendationsystem.models.Movie;
+import com.mycompany.movierecommendationsystem.models.User;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class BottomUp {
+class BottomUpTest {
     @Test
     void testRecommendMoviesForUser() {
         // Arrange

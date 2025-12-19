@@ -1,4 +1,4 @@
-package com.mycompany.movierecommendationsystem;
+package com.mycompany.movierecommendationsystem.Filehandler;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,12 +8,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+import com.mycompany.movierecommendationsystem.FileHandler;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-class FileHandlerTest {
+class BlackBoxTest {
 
     @TempDir
     Path tempDir;

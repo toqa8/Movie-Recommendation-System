@@ -1,9 +1,19 @@
+package com.mycompany.movierecommendationsystem.IntegrationTest;
+
+import com.mycompany.movierecommendationsystem.logic.MovieRecommender;
+import com.mycompany.movierecommendationsystem.logic.RecommenderLogic;
+import com.mycompany.movierecommendationsystem.models.Movie;
+import com.mycompany.movierecommendationsystem.models.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+import java.util.Map;
+
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TopDown {
+class TopDownTest {
     private MovieRecommender movieRecommenderMock;
     private RecommenderLogic recommenderLogic;
 
@@ -11,7 +21,8 @@ class TopDown {
     void setUp() {
         // Create mock for MovieRecommender
         movieRecommenderMock = mock(MovieRecommender.class);
-        recommenderLogic = new RecommenderLogic();
+        recommenderLogic = spy(new RecommenderLogic());
+        doReturn(movieRecommenderMock).when(recommenderLogic).createMovieRecommender();
     }
 
     @Test

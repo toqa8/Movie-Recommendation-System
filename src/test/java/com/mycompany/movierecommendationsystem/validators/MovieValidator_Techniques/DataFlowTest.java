@@ -1,16 +1,20 @@
-package testMovieValidator;
+package com.mycompany.movierecommendationsystem.validators.MovieValidator_Techniques;
+import com.mycompany.movierecommendationsystem.validators.ValidationException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
+
+import com.mycompany.movierecommendationsystem.models.Movie;
+import com.mycompany.movierecommendationsystem.validators.MovieValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class DataFlow_Test {
+class DataFlowTest {
 
     @BeforeEach
     void setUp() {
-        MovieValidator.reset(); 
+        MovieValidator.reset();
         
     }
     

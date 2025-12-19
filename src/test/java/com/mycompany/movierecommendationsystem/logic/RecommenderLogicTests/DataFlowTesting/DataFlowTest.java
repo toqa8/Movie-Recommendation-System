@@ -25,7 +25,7 @@ import static org.mockito.Mockito.*;
  Data Flow Testing
  */
 
-class DataFlowTesting {
+class DataFlowTest {
 
     private RecommenderLogic logic;
     private MovieRecommender movieRecommender;

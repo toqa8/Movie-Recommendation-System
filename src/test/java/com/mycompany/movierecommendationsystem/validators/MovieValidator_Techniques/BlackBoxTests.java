@@ -1,15 +1,15 @@
-package testMovieValidator;
+package com.mycompany.movierecommendationsystem.validators.MovieValidator_Techniques;
 
+import com.mycompany.movierecommendationsystem.models.Movie;
+import com.mycompany.movierecommendationsystem.validators.MovieValidator;
+import com.mycompany.movierecommendationsystem.validators.ValidationException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Nested;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 
 class BlackBoxTests {
 
@@ -36,7 +36,7 @@ class BlackBoxTests {
     @Test
     @DisplayName("EP: Invalid Title (Lowercase)")
     void testEP_Invalid_TitleLowercase() {
-        ValidationException e = assertThrows(ValidationException.class, 
+        ValidationException e = assertThrows(ValidationException.class,
             () -> MovieValidator.validate(createMovie("the Dark Knight", "TDK123")));
         assertEquals("ERROR: Movie Title the Dark Knight is wrong", e.getMessage());
     }
