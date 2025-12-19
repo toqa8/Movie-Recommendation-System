@@ -73,17 +73,17 @@ public class MovieParserTest {
     }
 
     @org.junit.Test
-    public void movieIdNumbersError() {
+    public void duplicateNumbersAccepted() {
 
         List<String> lines = Arrays.asList(
-                "The Matrix,TM111",  // duplicate numbers
+                "The Matrix,TM111",
                 "Action,Sci-Fi"
         );
+        List<Movie> movies = MovieParser.parseMovies(lines);
 
-        com.mycompany.movierecommendationsystem.validators.ValidationException ex = assertThrows(com.mycompany.movierecommendationsystem.validators.ValidationException.class, () -> MovieParser.parseMovies(lines)
-        );
-
-        assertTrue(ex.getMessage().contains("ERROR: Movie Id numbers"));
+        assertEquals(1, movies.size());
+        assertEquals("TM111", movies.getFirst().getId());
+        assertEquals("The Matrix", movies.getFirst().getTitle());
     }
 
     @Test

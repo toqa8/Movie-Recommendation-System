@@ -1,4 +1,4 @@
-package com.mycompany.movierecommendationsystem.UserParser.BlackBoxTesting;
+package com.mycompany.movierecommendationsystem.parser.UserParserTests.BlackBoxTesting;
 
 import com.mycompany.movierecommendationsystem.models.User;
 import com.mycompany.movierecommendationsystem.parser.UserParser;
