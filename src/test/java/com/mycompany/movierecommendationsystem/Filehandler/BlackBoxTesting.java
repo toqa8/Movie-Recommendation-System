@@ -39,7 +39,7 @@ class FileHandlerTest {
     }
 
     @Test
-    void FH_BB_01_missingFile_returnsEmptyList_andPrintsNotFoundError() {
+    void FH_BB_01() { //missingFile_returnsEmptyList_andPrintsNotFoundError
         String missingPath = tempDir.resolve("missing.txt").toString();
 
         List<String> result = fileHandler.readFile(missingPath);
@@ -52,7 +52,7 @@ class FileHandlerTest {
     }
 
     @Test
-    void FH_BB_02_emptyFile_returnsEmptyList_andPrintsEmptyWarning() throws Exception {
+    void FH_BB_02() throws Exception { //emptyFile_returnsEmptyList_andPrintsEmptyWarning
         Path emptyFile = tempDir.resolve("empty.txt");
         Files.createFile(emptyFile);
 
@@ -66,7 +66,7 @@ class FileHandlerTest {
     }
 
     @Test
-    void FH_BB_03_singleLineFile_returnsOneLine_andPrintsNothing() throws Exception {
+    void FH_BB_03() throws Exception { //singleLineFile_returnsOneLine_andPrintsNothing
         Path dataFile = tempDir.resolve("single.txt");
         Files.write(dataFile, List.of("A"));
 
@@ -80,7 +80,7 @@ class FileHandlerTest {
     }
 
     @Test
-    void FH_BB_04_multiLineFile_returnsAllLines_inOrder() throws Exception {
+    void FH_BB_04() throws Exception { //multiLineFile_returnsAllLines_inOrder
         Path dataFile = tempDir.resolve("data.txt");
         Files.write(dataFile, List.of("A", "B", "C"));
 
@@ -94,7 +94,7 @@ class FileHandlerTest {
     }
 
     @Test
-    void FH_BB_05_directoryPath_returnsEmptyList_andPrintsIoError_andAlsoEmptyWarning() throws Exception {
+    void FH_BB_05() throws Exception { //directoryPath_returnsEmptyList_andPrintsIoError_andAlsoEmptyWarning
         Path dirPath = tempDir.resolve("somedir");
         Files.createDirectory(dirPath);
 
@@ -109,7 +109,7 @@ class FileHandlerTest {
     }
 
     @Test
-    void FH_BB_06_nullFileName_throwsNullPointerException() {
+    void FH_BB_06() { //nullFileName_throwsNullPointerException
         assertThrows(NullPointerException.class, () -> fileHandler.readFile(null));
     }
 }
