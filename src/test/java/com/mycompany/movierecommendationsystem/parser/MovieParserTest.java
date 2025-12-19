@@ -2,17 +2,15 @@ package com.mycompany.movierecommendationsystem.parser;
 
 import com.mycompany.movierecommendationsystem.models.Movie;
 import com.mycompany.movierecommendationsystem.validators.ValidationException;
-
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MovieParserTest {
 
-    @org.junit.Test
+    @Test
     public void parseMovies() throws ValidationException {
         List<String> lines = Arrays.asList(
                 "The Matrix,TM123",
@@ -29,7 +27,7 @@ public class MovieParserTest {
         assertEquals(Arrays.asList("Action", "Sci-Fi"), m.getGenres());
     }
 
-    @org.junit.Test
+    @Test
     public void movieTitleError_lowercase() {
 
         List<String> lines = Arrays.asList(
@@ -43,7 +41,7 @@ public class MovieParserTest {
         assertTrue(ex.getMessage().contains("ERROR: Movie Title"));
     }
 
-    @org.junit.Test
+    @Test
     public void movieTitleError_InvalidCharacter() {
 
         List<String> lines = Arrays.asList(
@@ -58,7 +56,7 @@ public class MovieParserTest {
     }
 
 
-    @org.junit.Test
+    @Test
     public void movieIdLettersError() {
 
         List<String> lines = Arrays.asList(
@@ -72,7 +70,7 @@ public class MovieParserTest {
         assertTrue(ex.getMessage().contains("ERROR: Movie Id letters"));
     }
 
-    @org.junit.Test
+    @Test
     public void duplicateNumbersAccepted() {
 
         List<String> lines = Arrays.asList(
@@ -101,7 +99,7 @@ public class MovieParserTest {
                 () -> MovieParser.parseMovies(lines));
     }
 
-    @org.junit.Test
+    @Test
     public void oddNumberOfLinesError() {
 
         List<String> lines = Arrays.asList(
@@ -116,7 +114,7 @@ public class MovieParserTest {
         assertEquals("ERROR: movies.txt format is wrong", ex.getMessage());
     }
 
-    @org.junit.Test
+    @Test
     public void wrongFormat_Line1_Error() {
 
         List<String> lines = Arrays.asList(

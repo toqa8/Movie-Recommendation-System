@@ -4,11 +4,14 @@
  */
 package com.mycompany.movierecommendationsystem.models;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MovieTest {
 
@@ -20,7 +23,7 @@ public class MovieTest {
         List<String> genres = Arrays.asList("Action", "Drama");
         
         Movie movie = new Movie(title, id, genres);
-        assertEquals("Title should match constructor input", title, movie.getTitle());
+        assertEquals( title, movie.getTitle(), "Title should match constructor input");
         
        
     }
@@ -32,9 +35,9 @@ public class MovieTest {
         List<String> genres = Arrays.asList("Action", "Drama");
         
         Movie movie = new Movie(title, id, genres);
-      assertEquals("ID should match constructor input", id, movie.getId());}
+      assertEquals(id, movie.getId(), "ID should match constructor input");}
         
- @Test
+    @Test
     public void testMovieGetter3() {
        
         String title = "The Dark Knight";
@@ -42,7 +45,8 @@ public class MovieTest {
         List<String> genres = Arrays.asList("Action", "Drama");
         
         Movie movie = new Movie(title, id, genres);
-     assertEquals("Genres list should match constructor input", genres, movie.getGenres());}
+        assertEquals( genres, movie.getGenres(), "Genres list should match constructor input");
+    }
     @Test
     public void testToString() {
         Movie movie = new Movie("Inception", "I456", Collections.singletonList("Sci-Fi"));
@@ -50,6 +54,7 @@ public class MovieTest {
         String result = movie.toString();
         assertEquals("Movie{title=Inception ,id=I456 ,genres=[Sci-Fi]}",result);
        
-    }}
+    }
+}
 
     
